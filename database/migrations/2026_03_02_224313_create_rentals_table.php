@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('rentals', function (Blueprint $table) {
             $table->id();
+            $table->date('startDate');
+            $table->date('endDate');
+            $table->decimal('totalPrice',10,2);
+            $table->unsignedBigInteger('userId');
+            $table->unsignedBigInteger('equipmentId');
             $table->timestamps();
+
+            $table->foreign('userId')->references('id')->on('users');
+            $table->foreign('equipmentId')->references('id')->on('equipment');
         });
     }
 

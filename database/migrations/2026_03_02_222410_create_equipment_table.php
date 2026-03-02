@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('equipment', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 50);
+            $table->text('description');
+            $table->decimal('dailyPrice', 10, 2);
+            $table->unsignedBigInteger('categoryId');
             $table->timestamps();
+
+
+            $table->foreign('categoryId')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
