@@ -20,8 +20,8 @@ return new class extends Migration
             $table->unsignedBigInteger('equipmentId');
             $table->timestamps();
 
-            $table->foreign('userId')->references('id')->on('users');
-            $table->foreign('equipmentId')->references('id')->on('equipment');
+            $table->foreign('user_Id')->references('id')->on('users');
+            $table->foreign('equipment_Id')->references('id')->on('equipment');
         });
     }
 

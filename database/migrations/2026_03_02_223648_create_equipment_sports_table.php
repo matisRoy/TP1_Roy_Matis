@@ -18,8 +18,8 @@ return new class extends Migration
 
             $table->primary(['sportId', 'equipmentId']);
 
-            $table->foreign('sportId')->references('id')->on('sports');
-            $table->foreign('equipmentId')->references('id')->on('equipment');
+            $table->foreign('sport_Id')->references('id')->on('sports');
+            $table->foreign('equipment_Id')->references('id')->on('equipment');
         });
     }
 
