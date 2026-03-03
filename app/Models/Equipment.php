@@ -19,7 +19,7 @@ class Equipment extends Model
 
     public function sports()
     {
-        return $this->belongsToMany('\App\Models\Sport');
+        return $this->belongsToMany('\App\Models\Sport', 'equipment_sports');
     }
 
 
