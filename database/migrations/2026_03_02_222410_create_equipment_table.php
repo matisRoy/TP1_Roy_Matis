@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->text('description');
-            $table->decimal('dailyPrice', 10, 2);
-            $table->unsignedBigInteger('categoryId');
+            $table->decimal('daily_price', 10, 2);
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
 
 
-            $table->foreign('category_Id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

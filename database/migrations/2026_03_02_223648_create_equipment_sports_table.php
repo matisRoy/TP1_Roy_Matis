@@ -12,15 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('equipment_sports', function (Blueprint $table) {
-            $table->unsignedBigInteger('sportId');
-            $table->unsignedBigInteger('equipmentId');
-            $table->timestamps();
+        $table->unsignedBigInteger('equipment_id');
+        $table->unsignedBigInteger('sport_id');
+        $table->timestamps();
 
-            $table->primary(['sportId', 'equipmentId']);
-
-            $table->foreign('sport_Id')->references('id')->on('sports');
-            $table->foreign('equipment_Id')->references('id')->on('equipment');
-        });
+        $table->primary(['equipment_id', 'sport_id']);
+        $table->foreign('equipment_id')->references('id')->on('equipment');
+        $table->foreign('sport_id')->references('id')->on('sports');
+    });
     }
 
     /**

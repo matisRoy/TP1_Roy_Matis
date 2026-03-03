@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->tinyInteger('rating');
             $table->text('comment');
-            $table->unsignedBigInteger('userId');
-            $table->unsignedBigInteger('rentalId');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('rental_id');
             $table->timestamps();
 
-            $table->foreign('user_Id')->references('id')->on('users');
-            $table->foreign('rental_Id')->references('id')->on('rentals');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('rental_id')->references('id')->on('rentals');
         });
     }
 

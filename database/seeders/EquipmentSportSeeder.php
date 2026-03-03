@@ -10,9 +10,9 @@ class EquipmentSportSeeder extends Seeder
 {
     public function run(): void
     {
-        $now = Carbon::now(); // date et heure actuelles
+        $now = Carbon::now();
 
-        DB::table('equipment_sport')->insert([
+        DB::table('equipment_sports')->insert([
             ['equipment_id' => 1, 'sport_id' => 1, 'created_at' => $now, 'updated_at' => $now],
             ['equipment_id' => 1, 'sport_id' => 5, 'created_at' => $now, 'updated_at' => $now],
             ['equipment_id' => 2, 'sport_id' => 1, 'created_at' => $now, 'updated_at' => $now],
