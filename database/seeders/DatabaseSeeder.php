@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Seed des tables principales
+
         $this->call([
             SportsSeeder::class,
             CategoriesSeeder::class,
@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             EquipmentSportSeeder::class,
         ]);
 
-        // Factories
+
         User::factory(20)->create();
         Rental::factory(50)->create();
         Review::factory(100)->create();
