@@ -2,47 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SportResource;
+use App\Models\Sport;
 use Illuminate\Http\Request;
 
 class SportController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        return SportResource::collection(Sport::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        return new SportResource(Sport::find($id));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $sports = Sport::create($request->all());
+        return (new SportResource($sports))->response()->setStatusCode(201);
     }
 }

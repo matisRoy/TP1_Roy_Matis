@@ -2,47 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ReviewResource;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        return ReviewResource::collection(Review::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $sports = Review::create($request->all());
+        return (new ReviewResource($sports))->response()->setStatusCode(201);
     }
 }

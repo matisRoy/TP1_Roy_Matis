@@ -2,47 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\EquipmentResource;
+use App\Http\Resources\CategoryResource;
+
+use App\Models\Equipment;
 use Illuminate\Http\Request;
 
 class EquipmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        return EquipmentResource::collection(Equipment::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        return new EquipmentResource(Equipment::find($id));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $sports = Equipment::create($request->all());
+        return (new EquipmentResource($sports))->response()->setStatusCode(201);
     }
 }
